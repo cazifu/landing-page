@@ -1,20 +1,26 @@
+body{
+    background-color: #B3B6B7;
+
+}
 .grid-layout{
-    border:  1px solid #ff0000;
+    border: solid 10px #EDE3BF;
     margin-left: 350px;
     height: 1000px;
     width: 900px;
+    border-radius: 10px;
 }
 
 
 .grid{
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 60% 40% ;
     grid-template-rows: auto auto;
 }
 
 header{
     display: grid;
     grid-template-columns:  auto;
+    background-color: #F7F3E3;
     
 }
 .titulo{
@@ -33,37 +39,42 @@ header{
 main{
     display: grid;
     grid-template-rows: auto;
+    background-color: #EDE3BF;
     
 }
 .cuadro{
     
-    background-color: rgb(69, 69, 71);
-    border-left: 70px solid #0071f3;
+    background-color: #F7F3E3;
+    border-left: 0px solid #EDE3BF;
+    
    
 }
 
 .datos-personales{
-    background-color: rgb(69, 69, 71); 
-    height: 450px;
+    background-color: #F7F3E3; 
+    height: 492.5px;
 }
 
 .contacto{
     
-    background-color: rgb(69, 69, 71);
-
-    border-left: 70px solid #0071f3;
-   ;
+    background-color: #EDE3BF;
+    border-left: 50px solid #EDE3BF;
+    
+   
 }
 .cuerpo{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
     text-align: center;
+    color: #293132;
 }
 .cuerpo-cuadro{
     display: grid;
     grid-template-columns: auto auto;
     text-align: center;
+    color: #293132;
+
 }
 .lado{
     text-align: center;
@@ -76,11 +87,16 @@ h1{
     color: #000000;
 }
 h2{
-    font-size: 10mm;
+    padding-left: 20px;
+    margin-bottom: 5px;
     color: #000000;
 }
 h3{
     text-align: center;
+}
+h4{
+    font-size: 6mm;
+    padding-left: 70px;
 }
 
 .foto-principal{
@@ -89,16 +105,24 @@ h3{
     width: 200px;
     height: 200px;
     border-radius: 150px;
+    box-shadow: 0px 0px 20px 0px;
 }
 .perfil{
     text-align: center;
+    box-shadow: #000000;
 }
 
 .icons{
-    padding-left: 10px;
     width: 70px;
     height: 70px;
+    padding: 5.1px;
 }
+.icons:hover{
+    box-shadow: 1px 1px 12px 1px;
+    transform: scale(1);
+    transition: 0.4s;
+}
+
 .icon-nombre{
     font-size: large;
 padding-top: 20px;
