@@ -1,0 +1,133 @@
+header{
+    display: grid;
+    grid-template-rows: auto auto;
+    text-align: center;
+    background-color: #0073c0; /* Azul más suave y moderno */
+}
+body{
+    background-color: rgb(151, 151, 151);
+}
+
+.Mesa{
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    margin: 10px;
+}
+
+.Tarjeta{
+    width: auto;
+    height: auto;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+.cabecera{
+    background-color: #EFB778;
+    height: 300px;
+    width: 300px;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.FotoPerfil{
+    text-align: center;
+}
+
+.Foto{
+    height: 200px;
+    width: 200px;
+    margin-top: 30px;
+    border-radius: 50%;
+}
+.cuadrado{
+    height: 40px;
+    width: 40px;
+    background-color: yellow;
+    position: relative;
+    top: 250px;
+    left: 280px;
+    border-radius: 50%;
+}
+
+.cuadrado:hover{
+    transition: 0.5s;
+    background-color: #e6ab0a;
+    cursor: pointer;
+    user-select: none;
+}
+
+.icono{
+    font-size: 9.5mm;
+    text-align: center;
+}
+
+
+
+.nombre{
+    text-align: center;
+    font-size: 24px;
+}
+.minidatos{
+    height: 20px ;
+    text-align: center;
+}
+
+.data{
+    background-color: #FFFF;
+    height: 200px;
+    width: 300px;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.datos{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    font-family: "Josefin Sans", sans-serif;
+
+    text-align: center;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+.boton{
+    font-family: "Josefin Sans", sans-serif;
+    text-align: center;
+    margin-left: 80px;
+    margin-top: 50px;
+    padding-top: 5px;
+    background-color: #e60a0a;
+    width: 150px;
+    height: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.boton:hover{
+    transition: 0.2s;
+    background-color: aqua;
+}
+.info{
+    margin-top: 50px;
+    text-align: center;
+}
+a{
+    text-align: center;
+}
+
+
+
+h1{
+    margin: 10px;
+}
+h2{
+    margin: 10px;
+}
+
+.josefin-sans-boton {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 50px;
+    font-style: normal;
+  }
+  
