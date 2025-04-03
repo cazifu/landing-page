@@ -70,6 +70,13 @@ img{
     color: #ff0101;
 }
 
+footer{
+    text-align: center ;
+    height: 50px;
+    background-color: #000000;
+    
+}
+
 h1{
     position: relative;
     top: 18px;
@@ -83,4 +90,10 @@ h2{
     font-family: "Boldonse", system-ui;
     font-weight: 300;
     font-style: normal;
+}
+
+h3{
+    position: relative;
+    top: 15px;
+    color: #ffffff;
 }
