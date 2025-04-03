@@ -1,3 +1,10 @@
+*{text-decoration: none;
+
+}
+
+a:visited, a:link, a:active{
+    color: #000000;
+}
 header{
     display: grid;
     grid-template-rows: auto auto;
@@ -5,7 +12,7 @@ header{
     background-color: #0073c0; /* Azul más suave y moderno */
 }
 body{
-    background-color: rgb(151, 151, 151);
+    background-color: #ffffff;
 }
 
 .Mesa{
@@ -18,7 +25,13 @@ body{
     width: auto;
     height: auto;
     border-radius: 20px;
-    padding: 50px;
+    
+    margin: 50px;
+}
+
+.tarjeta:hover{
+    padding: 30px;
+    transition: 0.5s;
 }
 
 .cabecera{
@@ -26,7 +39,10 @@ body{
     height: 300px;
     width: 300px;
     border-radius: 15px 15px 0px 0px;
+    border: 1px solid #000000;
+    border-bottom: none;
 }
+
 
 .FotoPerfil{
     text-align: center;
@@ -37,6 +53,7 @@ body{
     width: 200px;
     margin-top: 30px;
     border-radius: 50%;
+    border: 2px solid #000000;
 }
 .cuadrado{
     height: 40px;
@@ -72,15 +89,16 @@ body{
 }
 
 .data{
-    background-color: #FFFF;
+    background-color: #eeeeee;
     height: 200px;
     width: 300px;
     border-radius: 0px 0px 20px 20px;
+    border: 1px solid #000000;
 }
 
 .datos{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 100px 100px 100px;
     font-family: "Josefin Sans", sans-serif;
 
     text-align: center;
@@ -88,24 +106,40 @@ body{
     padding-top: 10px;
 }
 
+.likes{  border-right:  1px solid #000000} 
+.following{    border-right:  1px solid #000000;} 
+.followers{}
+
 
 .boton{
     font-family: "Josefin Sans", sans-serif;
     text-align: center;
-    margin-left: 80px;
+    margin-left: 93px;
     margin-top: 50px;
     padding-top: 5px;
     background-color: #e60a0a;
-    width: 150px;
+    color: aliceblue;
+    width: 120px;
     height: 20px;
     border-radius: 10px;
     cursor: pointer;
     user-select: none;
 }
 
+.boton a{
+    color: aliceblue;
+}
+
+.boton a:hover{
+    color: #000000;
+}
+
 .boton:hover{
-    transition: 0.2s;
-    background-color: aqua;
+    transition: 0.7s;
+    position: relative;
+    top: -2px;
+    
+    
 }
 .info{
     margin-top: 50px;
