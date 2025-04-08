@@ -18,7 +18,7 @@ header{
 }
 
 body{
-    background-color: #242424;
+background-image: url("../img/fondo.jpg");
 }
 
 main{
@@ -34,16 +34,23 @@ main{
     position: relative;
     top: 50px;
     left: 20px;
-    background-color: rgb(223, 223, 223);
+    background-color: rgba(0, 0, 0, 0.8); /* gris con 50% de opacidad */
     width: 400px;
     border-radius: 20px;
     margin: 50px;
+    border: 2px solid #1e21c2; /* color neón */
+    box-shadow:
+        0 0 5px #1e21c2,
+        0 0 10px #1e21c2,
+        0 0 20px #1e21c2,
+       
+
 }
 
 .cuadro:hover{
     position: relative;
     top: 20px;
-    box-shadow: 0px 10px 15px #000000;
+    box-shadow: 0 0 40px #1e21c2;
 }
 
 
@@ -80,16 +87,22 @@ footer{
 h1{
     position: relative;
     top: 18px;
-    font-family: "Bungee Tint", sans-serif;
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 200;
     font-size: 50px;
-    font-style: normal;
-    color: blue;
+    color: #ffffff;
+    text-shadow: 0 0 5px #0703f4,
+    0 0 25px #0703f4,
+    0 0 50px #0703f4,
+    0 0 100px #0703f4;
 }
 
 h2{
-    font-family: "Boldonse", system-ui;
-    font-weight: 300;
-    font-style: normal;
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffffff,
+    0 0 25px #fdfdfd,
+    0 0 50px #ffffff,
+    0 0 100px #ffffff;
 }
 
 h3{
