@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <title>TP2 Maquetado y Prototipado de Tienda Virtual</title>
+</head>
+<body>
+
+    <header>
+        <h1>
+            TP 2 <br>
+            Maquetado y Prototipado de Tienda Virtual
+        </h1>
+    </header>
+
+    <main>
+        <div class="inicio">
+            <div class="titulo-tienda">
+                <h3>Mercado pala</h3>
+            </div>
+            <div class="datos-acceso">
+                <form class="ingreso-datos" action="principal.html">
+                    <input class="barra" type="text" name="usuario" placeholder="Usuario">
+                    <input class="barra" type="text" name="contraseña" placeholder="Contraseña">
+                    <input class="boton" type="submit" value="Iniciar Sesión">
+                    <input class="reg" type="submit" value="Registrarte" id="boton-registro" style="display: none;">
+                </form>
+                <a>¿No tienes cuenta?</a>
+                <a href="#" id="mostrar-registro">Regístrate</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/acciones.js"></script>
+</body>
+</html>

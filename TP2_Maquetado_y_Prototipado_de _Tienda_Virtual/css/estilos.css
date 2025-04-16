@@ -1,0 +1,99 @@
+main{
+    display: grid;
+    grid-template-columns: auto ;
+    text-align: center;
+    margin-left: 0;
+}
+
+.inicio{
+    display: grid;
+    grid-template-rows: auto auto;
+    border:  2px solid #000000;
+    height: 960px;
+    width: 540px;
+    text-align: center;
+}
+
+
+.titulo-tienda{
+    text-align: center;
+}
+
+.datos-acceso{
+    text-align: center;
+    margin-left: 50px;
+}
+
+.ingreso-datos{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    position: relative;
+    width: 450px;
+    height: 450px;
+    
+}
+
+.barra{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    width: 450px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.boton{
+
+    margin-top: 20px;
+    margin-bottom: -40px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: #ffff;
+    font-size: 17px;
+    font-family: "Tinos", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.boton:hover{
+    animation: 0.7;
+    background-color: aqua ;
+}
+
+.reg{
+
+    margin-top: 40px;
+    margin-bottom: -20px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: rgb(43, 174, 226);
+    color: #ffff;
+    font-size: 17px;
+    font-family: "Tinos", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+h3{
+    font-family: "Tinos", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 9mm;
+    margin-top: 214px;
+    color: #4B4B4B;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: aparecer 0.7s ease-out forwards;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

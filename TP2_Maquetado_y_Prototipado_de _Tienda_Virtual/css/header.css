@@ -1,0 +1,17 @@
+header{
+    background-color:rgba(0, 25, 104, 0.5);
+    margin-top: -25px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+h1{
+    text-align: center;
+    color: aliceblue;
+    font-size: 8mm;
+        text-shadow: 0 0 5px #0703f4,
+        0 0 25px #0703f4,
+        0 0 50px #0703f4,
+        0 0 1000px #0703f4;
+}
+

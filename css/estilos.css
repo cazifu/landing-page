@@ -24,6 +24,7 @@ background-image: url("../img/fondo.jpg");
 main{
     display: grid;
     grid-template-columns: auto auto auto;
+    padding-right: 50px;
 }
 
 .titulo-cuadro{
@@ -43,7 +44,7 @@ main{
         0 0 5px #1e21c2,
         0 0 10px #1e21c2,
         0 0 20px #1e21c2,
-       
+       ;
 
 }
 
