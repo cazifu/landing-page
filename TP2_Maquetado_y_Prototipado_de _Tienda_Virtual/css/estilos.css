@@ -1,8 +1,13 @@
+body{
+    padding-top: 50px;
+    text-align: center;
+}
 main{
     display: grid;
     grid-template-columns: auto ;
     text-align: center;
-    margin-left: 0;
+    margin-left: -10px;
+    padding-bottom: -50px;
 }
 
 .inicio{

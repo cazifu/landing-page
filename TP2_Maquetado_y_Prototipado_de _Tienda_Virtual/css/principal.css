@@ -4,17 +4,84 @@ header{
 }
 
 nav{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
     text-align: center;
     background-color: rgb(218, 218, 218);
     height: 50px;
     border-radius: 10px;
 }
 
+nav::-webkit-scrollbar{
+    display: none;
+}
+
+main{
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+.producto{
+    display: grid;
+    grid-template-columns: 45% 55%;
+}
+
 img{
-    margin-left: 40px;
-    height: 50px;
+    height: 120px;
+    width: 160px;
+    border-radius: 10px;
+}
+
+.imagen{
+    text-align: center;
+    padding-top: 10px;
+    
+}
+
+.info-prod{
+    padding-top: 10px;
+
+    text-align: center  ;
+}
+
+.icon{
+    padding: 20px;
+    height: 30px;
+    width: 30px;
+}
+
+h6{
+    font-family: "Arsenal SC", sans-serif;
+    margin: 5px;
+    font-size: 6mm;
+    cursor: pointer;
+    color: #7D7D7D;
+
+}
+
+h6:hover{
+    color: #000000;
+}
+
+h5{
+    margin: 0;
+    color: #0021FA;
+}
+
+h4{
+    font-family: "Arimo", sans-serif;
+    color: #7D7D7D;
+    font-size: 4.5mm;
+    margin: 5px;
+}
+
+h3{
+    font-family: "Arsenal SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 6mm;
+    margin: 5px;
 }
 
 h2{
