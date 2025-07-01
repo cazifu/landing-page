@@ -1,0 +1,102 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+:root{
+    --rosita: #f71db5;
+}
+
+
+.celular{
+
+    border: solid 1px #000000;
+    height: 1285px;
+    width: 375px;
+
+    
+}
+
+header{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    width: 375px;
+    height: 56px;
+    border-color:  1px #ff000000;
+}
+
+header img{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 20px;
+}
+
+.icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.flecha-atras{
+    margin-right: 50px;
+}
+
+.carrito{
+    margin-left: 162px;
+}
+
+.imagen{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.imagen img{
+    width: 343px;
+    height: 213px;
+}
+
+.talles{
+    border:solid 1px var(--rosita);
+    padding: .5em;
+    color: var(--rosita);
+    background-color: white;
+    text-transform: uppercase;
+    border-radius: 0.25em;
+    margin-left: 5px;
+}
+.talles.active{
+    background-color: var(--rosita);
+    color:white;
+}
+
+.detalles img{
+    width: 100px;
+}
+
+
+
+
+
+
+
+h2{
+    margin-left: 10px;
+    font-family: "Montserrat", sans-serif;
+    margin: 10px;
+}
+
+h3{
+    margin-left: 10px;
+    font-family: "Montserrat", sans-serif;
+    
+}
+
+h4{
+    margin-left: 10px;
+    margin-top: 0px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+}
