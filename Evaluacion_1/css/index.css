@@ -4,7 +4,9 @@ body{
     justify-content: center;
 }
 :root{
-    --rosita: #f71db5;
+    --blanco: #FDFDFD;
+    --rosita: #ffccd5;
+    --gris: #4d4d4d;
 }
 
 
@@ -62,13 +64,14 @@ header img{
     border:solid 1px var(--rosita);
     padding: .5em;
     color: var(--rosita);
-    background-color: white;
+    background-color: var(--blanco);
     text-transform: uppercase;
     border-radius: 0.25em;
     margin-left: 5px;
 }
 .talles.active{
     background-color: var(--rosita);
+    font-weight: 500;
     color:white;
 }
 
@@ -76,10 +79,163 @@ header img{
     width: 100px;
 }
 
+.detalles {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #333;
+    width: 300px;
+    padding: 10px;
+  }
+  
+  .rating {
+    margin-bottom: 5px;
+  }
+  
+  .estrellas {
+    color: #f8ce0b; /* color de estrellas */
+    font-size: 16px;
+  }
+  
+  .cantidad {
+    color: #888;
+    margin-left: 5px;
+  }
+  
+  .precio {
+    margin-bottom: 10px;
+  }
+  
+  .tachado {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 8px;
+  }
+  
+  .actual {
+    font-weight: bold;
+    color: #000;
+    margin-right: 8px;
+  }
+  
+  .descuento {
+    color: var(--rosita);
+    font-weight: bold;
+  }
+  
+  .detalles h4 {
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .detalles p {
+    color: #444;
+    line-height: 1.4;
+  }
+  
+  .mas {
+    color: var(--rosita);
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+.botones-config{
+    display: flex;
+    flex-direction: row;
+}
+
+.config{
+    display: flex;
+    border:solid 1px var(--gris);
+    padding: .5em;
+    color: var(--gris);
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 0.25em;
+    margin-left: 5px;
+}
+
+.config img{
+    height: 16px;
+    width: auto;
+}
+
+.botones-piolas {
+    display: flex;
+    gap: 20px;
+    padding-left: 10px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .boton {
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 25px;
+    padding: 0;
+    width: 136px;
+    height: 40px;
+    font-size: 16px;
+    color: var(--blanco);
+    cursor: pointer;
+    overflow: hidden;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+  }
+  
+  .boton:hover {
+    transform: scale(1.05);
+  }
+  
+  .icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 20px;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  /* Botón azul */
+  .azul {
+    background: linear-gradient(90deg, #003cff, #4e8dfc);
+  }
+  
+
+  
+  /* Botón verde */
+  .verde {
+    background: linear-gradient(90deg, #32cd88, #78fcb4);
+  }
+
+.tiempo-espera{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: var(--rosita);
+}
+
+.tiempo-espera h4{
+    margin:  0px;
+}
+.tiempo-espera h3{
+    margin:  0px;
+    margin-top: 0px;
+
+}
 
 
 
-
+h1{
+    margin-left: 10px;
+    font-family: "Montserrat", sans-serif;
+    margin: 10px;
+}
 
 
 h2{
