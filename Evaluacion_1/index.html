@@ -1,112 +1,347 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/index.css">
     <title>Evaluacion</title>
+    <style>
+        :root {
+            --blanco: #FDFDFD;
+            --rosita: #ffccd5;
+            --rosota: #FA7189;
+            --gris: #4d4d4d;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .celular {
+            border: solid 1px #000;
+            width: 375px;
+            background-color: #fff;
+            padding-bottom: 80px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        header img {
+            height: 20px;
+        }
+
+        .imagen {
+            display: flex;
+            justify-content: center;
+        }
+
+        .imagen img {
+            width: 343px;
+            height: 213px;
+        }
+
+        .talles {
+            border: solid 1px var(--rosota);
+            padding: .5em;
+            color: var(--rosota);
+            background-color: var(--blanco);
+            text-transform: uppercase;
+            border-radius: 0.25em;
+            margin: 5px;
+        }
+
+        .talles.active {
+            background-color: var(--rosota);
+            color: white;
+            font-weight: 500;
+        }
+
+        .detalles {
+            font-size: 14px;
+            color: #333;
+            padding: 10px;
+        }
+
+        .rating {
+            margin-bottom: 5px;
+        }
+
+        .estrellas {
+            color: #f8ce0b;
+            font-size: 16px;
+        }
+
+        .cantidad {
+            color: #888;
+            margin-left: 5px;
+        }
+
+        .precio .tachado {
+            text-decoration: line-through;
+            color: #888;
+            margin-right: 8px;
+        }
+
+        .precio .actual {
+            font-weight: bold;
+            color: #000;
+            margin-right: 8px;
+        }
+
+        .precio .descuento {
+            color: var(--rosita);
+            font-weight: bold;
+        }
+
+        .mas {
+            color: var(--rosita);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .botones-config, .botones-items {
+            display: flex;
+            gap: 5px;
+            padding: 10px;
+        }
+
+        .config, .botones-items button {
+            border: 1px solid var(--gris);
+            padding: .5em;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .botones-piolas {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 10px;
+        }
+
+        .boton {
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 25px;
+            padding: 0;
+            width: 136px;
+            height: 40px;
+            font-size: 16px;
+            color: var(--blanco);
+            cursor: pointer;
+            overflow: hidden;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .boton:hover {
+            transform: scale(1.05);
+        }
+
+        .icono {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .azul { background: linear-gradient(90deg, #003cff, #4e8dfc); }
+        .verde { background: linear-gradient(90deg, #32cd88, #78fcb4); }
+
+        .tiempo-espera {
+            background: var(--rosita);
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        .items {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .item {
+            min-width: 150px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            padding-bottom: 10px;
+        }
+
+        .item img {
+            width: 100%;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item h3, .item .descripcion, .item .precio {
+            padding: 5px 10px;
+        }
+
+        footer.footer-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 375px;
+            height: 60px;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid #ccc;
+            z-index: 100;
+        }
+
+        .nav-item {
+            text-align: center;
+            font-size: 12px;
+            color: #000;
+        }
+
+        .nav-item img {
+            height: 20px;
+        }
+
+        .cart-fab {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: red;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .cart-fab img {
+            width: 24px;
+        }
+    </style>
 </head>
 <body>
-
     <div class="celular">
         <header>
-            <div class="flecha-atras">
-                <img src="./img/atras.png" alt="">
-            </div>
-            <div class="carrito">
-                <img src="./img/carrito-de-compras.png" alt="">
-            </div>
-            
-            
+            <div class="flecha-atras"><img src="./img/atras.png" alt=""></div>
+            <div class="carrito"><img src="./img/carrito-de-compras.png" alt=""></div>
         </header>
 
         <main>
-            <div class="imagen">
-                <img src="./img/zapas.png">
-            </div>
+            <div class="imagen"><img src="./img/zapas.png" alt="zapas"></div>
             <h3>Size: 7UK</h3>
 
-        <div class="medidas">
-            <button class="talles">
-                6 UK
-            </button>
-            <button class="talles active">
-                7 UK
-            </button>
-            <button class="talles ">
-                8 UK
-            </button>
-            <button class="talles ">
-                9 UK
-            </button>
-            <button class="talles ">
-                10 UK
-            </button>
-        </div>
-
-        <h2>Nike Sneakers</h2>
-        <h4>Vision Alta Men’s Shoes Size (All Colours)</h4>
-
-        <div class="detalles">
-            <div class="rating">
-              <span class="estrellas">★★★★☆</span>
-              <span class="cantidad">(56,890)</span>
+            <div class="medidas">
+                <button class="talles">6 UK</button>
+                <button class="talles active">7 UK</button>
+                <button class="talles">8 UK</button>
+                <button class="talles">9 UK</button>
+                <button class="talles">10 UK</button>
             </div>
-          
-            <div class="precio">
-              <span class="tachado">₹2,999</span>
-              <span class="actual">₹1,500</span>
-              <span class="descuento">50% Off</span>
+
+            <h2>Nike Sneakers</h2>
+            <h4>Vision Alta Men’s Shoes Size (All Colours)</h4>
+
+            <div class="detalles">
+                <div class="rating">
+                    <span class="estrellas">★★★★☆</span>
+                    <span class="cantidad">(56,890)</span>
+                </div>
+
+                <div class="precio">
+                    <span class="tachado">₹2,999</span>
+                    <span class="actual">₹1,500</span>
+                    <span class="descuento">50% Off</span>
+                </div>
+
+                <h4>Product Details</h4>
+                <p>
+                    Perhaps the most iconic sneaker of all-time, this original "Chicago"? colorway is the cornerstone to any sneaker collection. Made famous in 1985 by Michael Jordan, the shoe has stood the test of time... <span class="mas">More</span>
+                </p>
+
+                <div class="botones-config">
+                    <button class="config"><img src="./img/ubicacion.png"> Nearest Store</button>
+                    <button class="config"><img src="./img/candado.png"> VIP</button>
+                    <button class="config"><img src="./img/regreso.png"> Return Policy</button>
+                </div>
             </div>
-          
-            <h4>Product Details</h4>
-            <p>
-              Perhaps the most iconic sneaker of all-time, this 
-              original “Chicago”? colorway is the cornerstone
-              to any sneaker collection. Made famous in 1985 
-              by Michael Jordan, the shoe has stood the test 
-              of time, becoming the most famous colorway of 
-              the Air Jordan 1. This 2015 release saw the ... 
-              <span class="mas">More</span>
-            </p>
-            <div class="botones-config">
-                <button class="config">
-                    <img src="./img/ubicacion.png" alt="">
-                    Nearest Store
-                </button>
-                <button class="config">
-                    <img src="./img/candado.png" alt="">
-                    VIP
-                </button>
-                <button class="config">
-                    <img src="./img/regreso.png" alt="">
-                    Retrun Policy
-                </button>
+
+            <div class="botones-piolas">
+                <button class="boton azul"><span class="icono">🛒</span>Go to cart</button>
+                <button class="boton verde"><span class="icono">💰</span>Buy Now</button>
             </div>
-          </div>
 
-          <div class="botones-piolas">
-            <button class="boton azul">
-              <span class="icono">&#128722;</span> 
-              Go to cart
-            </button>
-          
-            <button class="boton verde">
-              <span class="icono">&#128176;</span> 
-              Buy Now
-            </button>
-          </div>
+            <div class="tiempo-espera">
+                <h4>Delivery in</h4>
+                <h3>Within 1 Hour</h3>
+            </div>
 
-          <div class="tiempo-espera">
-            <h4>Delivery in</h4>
-            <h3>whithin Hour</h3>
+            <div class="dosBotones">
+                <button><img src="./img/ojo.png"> View Similar</button>
+                <button><img src="./img/comparar.png"> Add to Compare</button>
+            </div>
 
-          </div>
+            <h3>Similar To</h3>
+            <div class="botones-items">
+                <h4>282+ Items</h4>
+                <button>Sort <img src="./img/intercambiar.png"></button>
+                <button>Filter <img src="./img/filtrar.png"></button>
+            </div>
+
+            <div class="items">
+                <div class="item">
+                    <img src="./img/zapas2.png" alt="Nike Sneakers">
+                    <h3>Nike Sneakers</h3>
+                    <p class="descripcion">Nike Air Jordan Retro 1 Low<br>Mystic Black</p>
+                    <p class="precio">₹1,900</p>
+                    <div class="rating">
+                        <span class="estrellas">★★★★☆</span>
+                        <span class="cantidad">(46,890)</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="./img/zapas2.png" alt="Nike Sneakers">
+                    <h3>Nike Sneakers</h3>
+                    <p class="descripcion">Nike Air Jordan Retro 1 Low<br>Mystic Black</p>
+                    <p class="precio">₹1,900</p>
+                    <div class="rating">
+                        <span class="estrellas">★★★★☆</span>
+                        <span class="cantidad">(46,890)</span>
+                    </div>
+                </div>
+            </div>
         </main>
+
+        <footer class="footer-nav">
+            <a href="#" class="nav-item"><img src="./img/home.png"><br>Home</a>
+            <a href="#" class="nav-item"><img src="./img/heart.png"><br>Wishlist</a>
+            <div class="cart-fab"><img src="./img/carrito-blanco.png" alt="Cart"></div>
+            <a href="#" class="nav-item"><img src="./img/search.png"><br>Search</a>
+            <a href="#" class="nav-item"><img src="./img/settings.png"><br>Setting</a>
+        </footer>
     </div>
-    
 </body>
 </html>
