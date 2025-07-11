@@ -1,0 +1,141 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.celular{
+    width: 390px;
+    height: 844px;
+    border: solid 1px #000000;
+}
+
+.porcentajes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+.izq{
+    display: flex;
+    flex-direction:column;
+}
+.izq h1{
+    font-size: medium;
+    color :#E82933;
+    height: 15px;
+}
+
+.derec{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    
+
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+}
+
+.barraCompleta{
+    display: grid;
+    grid-template-columns: auto;
+    background-color: #E8D1D1;
+    height: 8px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.barra5{
+    position: relative;
+    bottom: 18px;
+    background-color: #E82933;
+        border-radius: 5px;
+
+    height: 8px;
+    width: 80px;
+    
+}
+.barra4{
+    position: relative;
+    bottom: 18px;
+    background-color: #E82933;
+        border-radius: 5px;
+
+    height: 8px;
+    width: 60px;
+}
+.barra3{
+    position: relative;
+    bottom: 18px;
+    background-color: #E82933;
+        border-radius: 5px;
+
+    height: 8px;
+    width: 30px;
+}
+.barra2{
+    position: relative;
+    bottom: 18px;
+    background-color: #E82933;
+        border-radius: 5px;
+
+    height: 8px;
+    width: 20px;
+}
+.barra1{
+    position: relative;
+    bottom: 18px;
+    background-color: #E82933;
+        border-radius: 5px;
+
+    height: 8px;
+    width: 10px;
+}
+h3{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: normal;
+}
+
+.coment{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: solid 1px #000000;
+    background-color: #c4c4c4;
+    margin-bottom: 10px;
+}
+
+.usuario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.usuario img{
+    border-radius: 50%;
+    background-color: aliceblue;
+    height: 30px;
+}
+
+.nombre h3{
+    margin :5px;
+    font-size: 3mm;
+}
+
+.puntaje{
+color: #E82933;
+}
+
+.comentario{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: normal;
+    margin-bottom: 10;
+}
