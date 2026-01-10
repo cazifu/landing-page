@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Ball Characters - DOM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd23f 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #4682B4, #1E90FF);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .home-button:hover {
+            background: linear-gradient(45deg, #1E90FF, #00BFFF);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .character-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .character-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .character-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e, #ffd23f);
+        }
+
+        .character-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .character-image {
+            width: 150px;
+            height: 180px;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 15px;
+            margin: 0 auto 20px;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: #f8f9fa;
+        }
+
+        .character-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 0.9rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .affiliation {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .z-fighter { background: #e8f5e8; color: #2e7d32; }
+        .army-frieza { background: #fce4ec; color: #c2185b; }
+        .freelancer { background: #fff3e0; color: #f57c00; }
+
+        @media (max-width: 768px) {
+            .characters-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="home-button">
+        🏠
+    </a>
+    <div class="header">
+        <h1>🐉 Dragon Ball Characters</h1>
+        <p>Explora los personajes más poderosos del universo Dragon Ball</p>
+    </div>
+    
+    <div class="characters-grid" id="charactersContainer">
+        <!-- Los personajes se cargarán aquí con JavaScript -->
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

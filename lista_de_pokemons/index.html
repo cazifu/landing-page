@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pokémons</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            margin: 50px 0;
+        }
+
+        .pokemon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pokemon-card {
+            background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 100%);
+            border: 4px solid #daa520;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .pokemon-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pokemon-id {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .pokemon-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            text-transform: capitalize;
+        }
+
+        .pokemon-image {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+            display: block;
+            background: linear-gradient(135deg, #e8f5e8, #f0fff0);
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .pokemon-types {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .type-badge {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white;
+            text-transform: capitalize;
+        }
+
+        .pokemon-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+
+        .stat {
+            background: rgba(0,0,0,0.05);
+            padding: 5px 8px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .pokemon-menu-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            width: 50px;
+            height: 40px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 9999;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .pokemon-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .pokemon-menu-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .pokemon-aside {
+            position: fixed;
+            top: 0;
+            right: -350px;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+            transition: right 0.3s ease;
+            z-index: 9998;
+            padding: 80px 20px 20px;
+            color: #333;
+        }
+
+        .pokemon-aside.open {
+            right: 0;
+        }
+
+        .pokemon-aside h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .pokemon-menu-item {
+            display: block;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            text-decoration: none;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .pokemon-menu-item:hover {
+            background: white;
+            transform: translateX(-5px);
+            color: #333;
+        }
+
+        .pokemon-menu-item::before {
+            content: attr(data-icon);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .pokemon-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="pokemon-menu-toggle" onclick="togglePokemonMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <aside class="pokemon-aside" id="pokemon-aside">
+        <h3>🔥 Pokémon Hub</h3>
+        <a href="../index.html" class="pokemon-menu-item" data-icon="🏠">Volver al Menú</a>
+        <a href="../act5/index.html" class="pokemon-menu-item" data-icon="🔍">Pokédex</a>
+        <a href="../combate de pokemons/index.html" class="pokemon-menu-item" data-icon="⚔️">Combate de Pokémons</a>
+        <a href="../lista_de_pokemons/index.html" class="pokemon-menu-item" data-icon="📋">Lista de Pokémons</a>
+        <a href="../guerra de pokemons/index.html" class="pokemon-menu-item" data-icon="🏆">Guerra de Pokémons</a>
+    </aside>
+
+    <div class="header">
+        <h1>📋 Lista Completa de Pokémon</h1>
+        <p style="color: white; font-size: 1.2rem;">Explora todos los Pokémon disponibles</p>
+    </div>
+
+    <div class="loading" id="loading">Cargando Pokémon...</div>
+    <div class="pokemon-grid" id="pokemon-grid"></div>
+
+    <script src="script.js"></script>
+    <script>
+        function togglePokemonMenu() {
+            const aside = document.getElementById('pokemon-aside');
+            aside.classList.toggle('open');
+        }
+
+        document.addEventListener('click', (e) => {
+            const aside = document.getElementById('pokemon-aside');
+            const toggle = document.querySelector('.pokemon-menu-toggle');
+            
+            if (!aside.contains(e.target) && !toggle.contains(e.target)) {
+                aside.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>

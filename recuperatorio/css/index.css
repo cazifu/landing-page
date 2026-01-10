@@ -1,102 +1,225 @@
-
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    padding: 10px 0;
+}
 
-.celular{
+.celular {
     width: 390px;
-    height: 844px;
-    border: solid 1px #000000;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+    padding-bottom: 70px;
 }
 
-
-.busc{
+header {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-}
-.buscador{
-    display: grid;
-    grid-template-columns: 10% 90%;
-    height: 60px;
-    width: 358px;
-    border-radius: 15px;
-    background-color: rgb(224, 224, 224);
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
 }
 
-.buscador h2{
-    margin: 15px;
-}
-
-.categorias{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.cat{
-    height: 32px;
-    margin: 5px 10px;
+.icono {
+    width: 35px;
+    height: 35px;
+    background: rgba(255,255,255,0.2);
     border-radius: 10px;
-    background-color: rgb(196, 196, 196);
-}
-.cat h5{
-    margin: 9px;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
-
-h2{
-    font-family: "Plus Jakarta Sans", sans-serif;
+.icono img {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
 }
 
-.restaurantes{
+.titulo {
+    flex: 1;
+    text-align: center;
+}
+
+.titulo h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.busc {
+    padding: 20px;
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: 12px;
+    gap: 10px;
+}
+
+.buscador .icono {
+    background: none;
+    width: auto;
+    height: auto;
+}
+
+.buscador .icono img {
+    width: 16px;
+    height: 16px;
+    filter: none;
+    opacity: 0.6;
+}
+
+.buscador h2 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    margin: 0;
+}
+
+.categorias {
+    display: flex;
+    gap: 8px;
+    padding: 0 20px 20px;
+    justify-content: center;
+}
+
+.cat {
+    background: #e8e8e8;
+    border-radius: 15px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cat:hover {
+    background: #667eea;
+}
+
+.cat:hover h5 {
+    color: white;
+}
+
+.cat h5 {
+    font-size: 11px;
+    font-weight: 500;
+    color: #555;
+    margin: 0;
+    transition: color 0.2s ease;
+}
+
+.restaurantes {
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
-    margin-left: 50px;
+    gap: 12px;
 }
 
-.res{
+.res {
     display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: flex-start;
-    margin: 10px 0;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.foto img{
-    width: 100px;
-    height: 56px;
-    background: url(.png);
+.res:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.foto img {
+    width: 70px;
+    height: 50px;
     border-radius: 8px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+    object-fit: cover;
 }
 
-.nombre-res{
+.nombre-res {
+    flex: 1;
+}
+
+.nombre-res h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.nombre-res h4 {
+    font-size: 11px;
+    font-weight: 400;
+    color: #666;
+    margin: 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 390px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    border-radius: 15px 15px 0 0;
+}
+
+.seccion {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 200px;
+    gap: 3px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
 }
 
-.nombre-res h3{
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: normal;
-    font-size: 4mm;
-    margin: 2.5px;
-
+.seccion:hover {
+    background: #f0f0f0;
 }
-.nombre-res h4{
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: normal;
-    font-size: 3.5mm;
-    margin: 2.5px;
+
+.seccion img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.7;
+}
+
+.seccion:hover img {
+    opacity: 1;
+}
+
+.seccion h3 {
+    font-size: 10px;
+    font-weight: 500;
+    color: #666;
+    margin: 0;
+}
+
+.seccion:hover h3 {
+    color: #333;
 }
