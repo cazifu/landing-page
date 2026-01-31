@@ -4,205 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Lionel Clementi</title>
-    <!-- Carga de Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Alinea al inicio para que el contenido fluya hacia abajo */
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .home-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: linear-gradient(45deg, #4682B4, #1E90FF);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 12px 20px;
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .home-button:hover {
-            background: linear-gradient(45deg, #1E90FF, #00BFFF);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        .cv-container {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            width: 100%;
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-        .section-title {
-            color: #2d3748; /* Color oscuro para títulos */
-            font-weight: 600;
-            font-size: 1.5rem; /* h2 size */
-            border-bottom: 2px solid #edf2f7; /* Línea sutil debajo del título */
-            padding-bottom: 8px;
-            margin-bottom: 16px;
-        }
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .list-item {
-            margin-bottom: 8px;
-        }
-        .experience-item {
-            margin-bottom: 16px;
-        }
-        .experience-item:last-child {
-            margin-bottom: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/estiloCV.css">
 </head>
-<body class="antialiased">
-    <a href="../index.html" class="home-button">
-        🏠
-    </a>
+<body>
+    <a href="../index.html" class="home-btn">🏠 Inicio</a>
+
     <div class="cv-container">
-        <!-- Encabezado y Foto -->
-        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 pb-6 border-b border-gray-200">
-            <!-- Espacio para la foto -->
-            <div class="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden shadow-md flex-shrink-0">
-                <!-- Puedes reemplazar el span con una etiqueta img si tienes una URL de imagen -->
-                <a href="index.html"><img src="./img/lio.jpg" alt="Foto personal" class="w-full h-full object-cover"> </a> 
-            </div>
-            <!-- Información de Contacto y Nombre -->
-            <div class="text-center sm:text-left flex-grow">
-                <h1 class="text-4xl font-bold text-gray-800 mb-2">Lionel Clementi</h1>
-                <p class="text-lg text-gray-600 mb-4">Estudiante de Informática Técnica</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-700">
-                    <div class="info-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
-                        </svg>
-                        <span>5 de septiembre de 2006</span>
+        <div class="cv-page">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <img src="./img/lio.jpg" alt="Lionel Clementi" class="profile-img">
+                <h1 class="name">Lionel Clementi</h1>
+                <p class="title">Tecnico en informatica personal y profesional</p>
+
+                <section class="contact">
+                    <h3 class="section-title">Contacto</h3>
+                    <div class="contact-item">📅 5 de septiembre de 2006</div>
+                    <div class="contact-item">📱 11 3286-5146</div>
+                    <div class="contact-item">📧 liolioclem@gmail.com</div>
+                    <div class="contact-item">📍 Moliere 984, Tortuguitas, Buenos Aires</div>
+                    <div class="contact-item">🌐 lioclem01</div>
+                </section>
+
+  <section class="experience">
+                    <h2 class="section-title">Experiencia</h2>
+                    <div class="experience-item">
+                        <h4 class="job-title">Actor de eventos festivos</h4>
+                        <div class="company">Robot MR Hard • 2022 - 2024</div>
+                        <ul class="description">
+                            <li>Animación y coordinación de eventos escolares</li>
+                            <li>Presentación y participación activa frente al público</li>
+                        </ul>
                     </div>
-                    <div class="info-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                        </svg>
-                        <span>11 3286-5146</span>
+                </section>
+
+                <section class="languages">
+                    <h3 class="section-title">Idiomas</h3>
+                    <div class="skill-item">Español - Nativo</div>
+                    <div class="skill-item">Inglés - B2</div>
+                </section>
+
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <section class="profile">
+                    <h2 class="section-title">Perfil Profesional</h2>
+                    <p class="description">
+                        Soy un tecnico en informática personal y profesional con sólidos conocimientos en desarrollo de software, diseño 3D, redes y hardware. Experiencia práctica en diagnóstico, armado y mantenimiento de computadoras. Busco aplicar mis habilidades técnicas en un entorno desafiante.
+                    </p>
+                </section>
+
+                <section class="education">
+                    <h2 class="section-title">Educación y Formación</h2>
+
+                    <div class="education-item">
+                        <h4 class="job-title">Escuela de Educación Técnica N.° 3 Roberto Arlt</h4>
+                        <div class="company">2019 - 2025</div>
+                        <p class="description">Especialización en Informática Técnica</p>
                     </div>
-                    <div class="info-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                        </svg>
-                        <span>Moliere 984, Tortuguitas, Buenos Aires</span>
+
+                    <div class="cfp">
+                        <h4>Centro de Formación Profesional N°401 (CFP 401)</h4>
+                        <p>Tortuguitas, Buenos Aires</p>
                     </div>
-                    <div class="info-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                        </svg>
-                        <span>liolioclem@gmail.com</span>
+
+                    <div class="course-box">
+                        <h5 class="course-title">Curso de robótica y automatización</h5>
+                        <p class="course-desc">
+                            <strong>Período:</strong> jun. 2024 – ago. 2024 | <strong>Nota:</strong> 8<br>
+                            <strong>Descripción:</strong> Introducción a la ingeniería de control y sistemas automáticos. Formación en el montaje de circuitos electrónicos, programación de microcontroladores (como Arduino) y prototipado de sistemas físicos inteligentes. Enfoque en la eficiencia de procesos mediante la tecnología.
+                        </p>
+                        <p class="skills-list">Aptitudes: Robótica, Electrónica</p>
                     </div>
-                    <div class="info-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7.5 7.5a.75.75 0 00-1.5 0v5a.75.75 0 001.5 0V7.5zm4.5 0a.75.75 0 00-1.5 0v5a.75.75 0 001.5 0V7.5z" clip-rule="evenodd" />
-                        </svg>
-                        <span>lioclem01 (Redes)</span>
+
+                    <div class="course-box">
+                        <h5 class="course-title">Curso de habilidades digitales</h5>
+                        <p class="course-desc">
+                            <strong>Período:</strong> abr. 2024 – may. 2024 | <strong>Nota:</strong> 10<br>
+                            <strong>Descripción:</strong> Capacitación integral en el uso profesional de tecnologías de la información. Dominio de herramientas de productividad (Office/Google Workspace), gestión de archivos en la nube, colaboración en entornos virtuales y fundamentos de seguridad digital para el ámbito laboral moderno.
+                        </p>
+                        <p class="skills-list">Aptitudes: Alfabetización informacional, Software de productividad</p>
                     </div>
-                </div>
-            </div>
+
+                    <div class="course-box">
+                        <h5 class="course-title">Curso de pensamiento computacional</h5>
+                        <p class="course-desc">
+                            <strong>Período:</strong> mar. 2024 – abr. 2024 | <strong>Nota:</strong> 9<br>
+                            <strong>Descripción:</strong> Formación en metodologías lógicas para la resolución de problemas. Incluye el análisis de algoritmos, descomposición de tareas complejas y diseño de procesos sistemáticos. Desarrolla la capacidad de estructurar soluciones eficientes antes de la ejecución técnica.
+                        </p>
+                        <p class="skills-list">Aptitudes: Resolución de problemas, Automatización de procesos</p>
+                    </div>
+                </section>
+            </main>
         </div>
-
-        <!-- Sección: Información Personal -->
-        <section>
-            <h2 class="section-title">Información Personal</h2>
-            <p class="text-gray-700 leading-relaxed">
-                Soy un estudiante de 7.º año de informática técnica con conocimientos sólidos en desarrollo de software, diseño 3D, redes y hardware. Manejo diversos lenguajes de programación y tengo experiencia práctica en diagnóstico, armado y mantenimiento de computadoras. Busco aplicar mis habilidades y conocimientos técnicos en un entorno desafiante.
-            </p>
-        </section>
-
-        <!-- Sección: Conocimientos Técnicos -->
-        <section>
-            <h2 class="section-title">Conocimientos Técnicos</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-gray-700">
-                <ul class="list-disc list-inside">
-                    <li class="list-item">Programación: <br> Java, JavaScript, CSS, C++, PHP, Python</li>
-                    <li class="list-item">Desarrollo Web: <br> HTML5, CSS3, JavaScript</li>
-                    <li class="list-item">Bases de Datos: <br> MySQL, SQLite</li>
-                </ul>
-                <ul class="list-disc list-inside">
-                    <li class="list-item">Sistemas Operativos: <br>Windows, Linux (Ubuntu)</li>
-                    <li class="list-item">Redes: <br>Topologías, direccionamiento IP, herramientas de diagnóstico (Packet Tracer)</li>
-                    <li class="list-item">Soporte Técnico: Diagnóstico, reparación y armado de PC, mantenimiento de equipos</li>
-                </ul>
-                <ul class="list-disc list-inside">
-                    <li class="list-item">Diseño e Impresión 3D: FreeCAD, impresoras 3D, Thingiverse</li>
-                    <li class="list-item">Plataformas y Herramientas: Arduino IDE, VS Code</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Sección: Proyectos Personales -->
-        <section>
-            <h2 class="section-title">Proyectos Personales</h2>
-            <ul class="list-disc list-inside text-gray-700">
-                <li class="list-item">Diseño de piezas funcionales 3D: Creación y publicación de diseños en Thingiverse.</li>
-                <li class="list-item">Desarrollo de scripts: Creación de scripts funcionales en Python y Java.</li>
-                <li class="list-item">Simulaciones de redes: Diseño e implementación de simulaciones de redes LAN/WAN utilizando Packet Tracer.</li>
-                <li class="list-item">Proyectos con Arduino: Desarrollo de sistemas con sensores y automatización.</li>
-            </ul>
-        </section>
-
-        <!-- Sección: Experiencia -->
-        <section>
-            <h2 class="section-title">Experiencia</h2>
-            <div class="experience-item">
-                <h3 class="text-lg font-semibold text-gray-800">Actor de eventos festivos</h3>
-                <p class="text-md text-gray-600">Robot MR Hard (2022 - 2024)</p>
-                <ul class="list-disc list-inside text-gray-700 mt-2">
-                    <li class="list-item">Animación y coordinación de eventos escolares.</li>
-                    <li class="list-item">Presentación y participación activa frente al público.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Sección: Educación -->
-        <section>
-            <h2 class="section-title">Educación</h2>
-            <div class="mb-4">
-                <h3 class="text-lg font-semibold text-gray-800">Escuela Secundaria Técnica N.º 3 Roberto Arlt</h3>
-                <p class="text-md text-gray-600">Tortuguitas, Buenos Aires</p>
-                <p class="text-gray-700">7.º año en curso (Bachiller con Orientación en Informática Técnica)</p>
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold text-gray-800">Instituto Evangélico Argentino (I.E.A)</h3>
-                <p class="text-md text-gray-600">Tortuguitas, Buenos Aires</p>
-                <p class="text-gray-700">Primaria (Finalizada)</p>
-            </div>
-        </section>
-
-        <!-- Sección: Idiomas -->
-        <section>
-            <h2 class="section-title">Idiomas</h2>
-            <ul class="list-disc list-inside text-gray-700">
-                <li class="list-item">Español: Nativo</li>
-                <li class="list-item">Inglés: B2 (Intermedio-Alto)</li>
-            </ul>
-        </section>
     </div>
 </body>
 </html>
