@@ -3,319 +3,511 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Principal - Mis Proyectos</title>
+    <title>Lionel Clementi — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #111118;
+            --bg-card-hover: #16161f;
+            --border: #1e1e2e;
+            --border-hover: #6c63ff;
+            --accent: #6c63ff;
+            --accent-2: #a78bfa;
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+            --tag-bg: #1a1a2e;
+            --tag-text: #a78bfa;
+        }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #87CEEB 0%, #4682B4 50%, #1E90FF 100%);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            position: relative;
             overflow-x: hidden;
         }
 
+        /* ── NOISE TEXTURE OVERLAY ── */
         body::before {
             content: '';
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMzAwIj4KICA8cGF0aCBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNCkiIGQ9Ik0yNDAuNSAyNzMuNUgxNS41VjI2LjVIMjQwLjVWMjczLjVaTTI2LjUgMjYyLjVIMjI5LjVWMzcuNUgyNi41VjI2Mi41WiIvPgogIDxwYXRoIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgZD0iTTIwNS41IDIzNy41SDUwLjVWNjIuNUgyMDUuNVYyMzcuNVpNNjEuNSAyMjYuNUgxOTQuNVY3My41SDYxLjVWMjI2LjVaIi8+CiAgPHRleHQgeD0iMTUwIiB5PSIxODAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI3MiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q1NTPC90ZXh0Pgo8L3N2Zz4=');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            opacity: 0.6;
-            z-index: -1;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
             pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
         }
 
-        .container {
-            max-width: 1400px;
-            width: 100%;
+        /* ── GLOW BLOBS ── */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.12;
+        }
+        .blob-1 { width: 600px; height: 600px; background: #6c63ff; top: -200px; left: -200px; }
+        .blob-2 { width: 500px; height: 500px; background: #a78bfa; bottom: -150px; right: -150px; }
+
+        /* ── HEADER ── */
+        header {
+            position: relative;
+            z-index: 10;
+            padding: 80px 40px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-tag::before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 1px;
+            background: var(--accent);
         }
 
         h1 {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1;
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        h1 span {
+            background: linear-gradient(135deg, #6c63ff, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .subtitle {
-            text-align: center;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 30px;
-            font-size: 1.2rem;
-            font-weight: 300;
-            position: relative;
-            z-index: 1;
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            font-weight: 400;
+            max-width: 520px;
+            line-height: 1.7;
+            margin-bottom: 36px;
         }
 
+        .header-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 24px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            border: 1px solid var(--accent);
+        }
+        .btn-primary:hover { background: #7c73ff; transform: translateY(-1px); }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-dim);
+            border: 1px solid var(--border);
+        }
+        .btn-ghost:hover { border-color: var(--accent); color: var(--text); transform: translateY(-1px); }
+
+        /* ── DIVIDER ── */
+        .divider {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 40px;
+            position: relative;
+            z-index: 10;
+        }
+        .divider hr {
+            border: none;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── SECTION LABEL ── */
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            padding: 0 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ── GRID ── */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: 1px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 10;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
         }
 
+        /* ── CARD ── */
         .project-card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 15px;
-            padding: 0;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--bg-card);
             text-decoration: none;
             color: inherit;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            flex-direction: column;
+            transition: background 0.2s ease;
             position: relative;
-            z-index: 1;
             overflow: hidden;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            background: var(--bg-card-hover);
         }
 
-        .project-number {
-            background: linear-gradient(45deg, #4682B4, #1E90FF);
-            color: white;
-            padding: 8px 15px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin: 0;
+        .project-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid transparent;
+            border-radius: 0;
+            transition: border-color 0.2s ease;
+            pointer-events: none;
+            z-index: 2;
         }
+        .project-card:hover::after { border-color: var(--border-hover); }
 
-        .project-image {
+        .card-image {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 180px;
             overflow: hidden;
+            background: #0d0d14;
         }
 
-        .project-image img {
+        .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
-            transition: transform 0.3s ease;
+            object-position: top;
+            transition: transform 0.4s ease, opacity 0.3s ease;
+            opacity: 0.85;
         }
 
-        .project-image img:hover {
-            transform: scale(1.05);
+        .project-card:hover .card-image img {
+            transform: scale(1.04);
+            opacity: 1;
         }
 
-        .project-content {
-            padding: 20px;
+        .card-body {
+            padding: 22px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
-        .project-title {
-            font-size: 1.4rem;
-            font-weight: bold;
+        .card-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             margin-bottom: 10px;
-            color: #333;
         }
 
-        .project-description {
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 20px;
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
         }
 
-        .project-link {
-            display: inline-block;
-            background: linear-gradient(45deg, #4682B4, #1E90FF);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            flex: 1;
+            margin-bottom: 18px;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 3px 9px;
+            border-radius: 4px;
+            border: 1px solid #2a2a40;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-2);
             text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            width: 100%;
-            text-align: center;
+            transition: gap 0.2s ease, color 0.2s ease;
+        }
+        .card-link:hover { gap: 10px; color: #fff; }
+        .card-link svg { transition: transform 0.2s ease; }
+        .card-link:hover svg { transform: translateX(2px); }
+
+        /* ── FOOTER ── */
+        footer {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 40px 40px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
-        .project-link:hover {
-            background: linear-gradient(45deg, #1E90FF, #00BFFF);
-            transform: scale(1.02);
+        .footer-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dim);
         }
 
+        .footer-note {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
 
-
-        @media (max-width: 900px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* ── RESPONSIVE ── */
+        @media (max-width: 960px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+            header { padding: 50px 24px 40px; }
+            .projects-grid { grid-template-columns: 1fr; padding: 0 24px; }
+            .section-label { padding: 0 24px; }
+            .divider { padding: 0 24px; }
+            footer { padding: 32px 24px; }
         }
-
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Mis Proyectos</h1>
-        <p class="subtitle">Demostrando mis habilidades en programación y diseño web</p>
-        
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-number">TP 00</div>
-                <div class="project-image"><img src="./img/curriculum.png"></div>
-                <div class="project-content">
-                    <div class="project-title">Curriculum Vitae</div>
-                    <div class="project-description">
-                        Curriculum vitae personal con diseño moderno y responsive. Muestra información profesional, experiencia laboral y habilidades técnicas.<br><br>
-                        <strong>Tecnologías:</strong> HTML5, CSS3, Flexbox, Grid Layout, Responsive Design
-                    </div>
-                    <a href="./TP00_Curriculum/index.html" class="project-link">Entrar</a>
-                </div>
-            </div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
 
-            <div class="project-card">
-                <div class="project-number">TP 01</div>
-                <div class="project-image"><img src="./img/tarjetas.png" alt=""></div>
-                <div class="project-content">
-                    <div class="project-title">Tarjetas Interactivas</div>
-                    <div class="project-description">
-                        Sistema de tarjetas interactivas con efectos visuales y animaciones CSS. Incluye hover effects, transiciones suaves y diseño atractivo.<br><br>
-                        <strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, Animations, Transitions
-                    </div>
-                    <a href="./TP1_Tarjetas/index.html" class="project-link">Entrar</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">TP 02</div>
-                <div class="project-image"><img src="./img/mercadopala.png" alt=""></div>
-                <div class="project-content">
-                    <div class="project-title">Tienda Virtual</div>
-                    <div class="project-description">
-                        E-commerce completo con catálogo de productos, carrito de compras, sistema de filtros y navegación intuitiva. Diseño responsive y funcional.<br><br>
-                        <strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, LocalStorage, Responsive Design
-                    </div>
-                    <a href="./TP2_Maquetado_y_Prototipado_de _Tienda_Virtual/index.html" class="project-link">Entrar</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">EVAL 01</div>
-                <div class="project-image"><img src="./img/evaluacion1.png" alt=""></div>
-                <div class="project-content">
-                    <div class="project-title">Evaluación 1</div>
-                    <div class="project-description">
-                        Interfaz de producto mobile-first con funcionalidades interactivas. Incluye galería de imágenes, selector de variantes y diseño adaptativo.<br><br>
-                        <strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, Mobile-First Design, Media Queries
-                    </div>
-                    <a href="./Evaluacion_1/index.html" class="project-link">Entrar</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">EVAL 02</div>
-                <div class="project-image"><img src="./img/evaluacion2.png" alt=""></div>
-                <div class="project-content">
-                    <div class="project-title">Evaluación 2</div>
-                    <div class="project-description">
-                        Aplicación web de restaurante con menú digital, sistema de pedidos, reseñas de clientes y navegación entre múltiples secciones.<br><br>
-                        <strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, DOM Manipulation, Event Handling
-                    </div>
-                    <a href="./recuperatorio/index.html" class="project-link">Entrar</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">ACT 04</div>
-                <div class="project-image"><img src="./img/Dom.png" alt=""></div>
-                <div class="project-content">
-                    <div class="project-title">Práctica DOM</div>
-                    <div class="project-description">
-                        Galería interactiva de personajes de Dragon Ball. Demuestra manipulación del DOM creando elementos dinámicamente desde arrays de datos.<br><br>
-                        <strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, DOM API, createElement(), appendChild()
-                    </div>
-                    <a href="./act4-Actividades (Práctica de DOM)/index.html" class="project-link">Entrar</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">ACT 05</div>
-                <div class="project-image"><img src="./img/pokedex.png" alt=""></div>
-                <div class="project-content">
-                    <div class="project-title">Pokédex</div>
-                    <div class="project-description">
-                        Buscador de Pokémon con información detallada y diseño de cartas coleccionables. Consume la PokéAPI para mostrar datos en tiempo real.<br><br>
-                        <strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, Fetch API, PokéAPI, Async/Await
-                    </div>
-                    <a href="./act5/index.html" class="project-link">Entrar</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">POKEMON</div>
-                <div class="project-image"><img src="./img/compararPokemons.png" alt=""></div>
-                <div class="project-content">
-                    <div class="project-title">Combate de Pokémons</div>
-                    <div class="project-description">
-                        Sistema de combate que compara estadísticas de dos Pokémon. Incluye cartas detalladas, animaciones de batalla y determinación automática del ganador.<br><br>
-                        <strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, PokéAPI, Animations, Card Design
-                    </div>
-                    <a href="./combate de pokemons/index.html" class="project-link">Entrar</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">POKEMON</div>
-                <div class="project-image"><img src="./img/listaDePokemons.png" alt=""></div>
-                <div class="project-content">
-                    <div class="project-title">Lista de Pokémons</div>
-                    <div class="project-description">
-                        Explorador completo que muestra todos los Pokémon disponibles con sus tipos, estadísticas y colores según elemento. Grid responsive y carga dinámica.<br><br>
-                        <strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, PokéAPI, Grid Layout, Type Colors
-                    </div>
-                    <a href="./lista_de_pokemons/index.html" class="project-link">Entrar</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-number">POKEMON</div>
-                <div class="project-image"><img src="./img/guerra-de-pokemons.png" alt=""></div>
-                <div class="project-content">
-                    <div class="project-title">Guerra de Pokémons</div>
-                    <div class="project-description">
-                        Juego de estrategia por turnos donde seleccionas un equipo de 6 Pokémon para enfrentar batallas. Incluye sistema de cartas, animaciones de victoria/derrota.<br><br>
-                        <strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, PokéAPI, Game Logic, Card System
-                    </div>
-                    <a href="./guerra de pokemons/index.html" class="project-link">Entrar</a>
-                </div>
-            </div>
+    <header>
+        <div class="header-tag">Portfolio</div>
+        <h1>Lionel <span>Clementi</span></h1>
+        <p class="subtitle">Técnico en informática personal y profesional. Desarrollo web, diseño 3D, redes y hardware.</p>
+        <div class="header-actions">
+            <a href="./TP00_Curriculum/index.html" class="btn btn-primary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Ver Curriculum
+            </a>
+            <a href="./TP00_Curriculum/CurriculumIngles.html" class="btn btn-ghost">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                CV in English
+            </a>
         </div>
+    </header>
+
+    <div class="divider"><hr></div>
+
+    <p class="section-label">// proyectos</p>
+
+    <div class="projects-grid">
+
+        <a href="./TP00_Curriculum/index.html" class="project-card">
+            <div class="card-image"><img src="./img/curriculum.png" alt="Curriculum Vitae"></div>
+            <div class="card-body">
+                <div class="card-badge">TP 00</div>
+                <div class="card-title">Curriculum Vitae</div>
+                <div class="card-desc">CV personal con diseño moderno y responsive. Muestra información profesional, experiencia y habilidades técnicas.</div>
+                <div class="card-tags">
+                    <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Flexbox</span>
+                </div>
+                <span class="card-link">Ver proyecto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+        </a>
+
+        <a href="./TP1_Tarjetas/index.html" class="project-card">
+            <div class="card-image"><img src="./img/tarjetas.png" alt="Tarjetas Interactivas"></div>
+            <div class="card-body">
+                <div class="card-badge">TP 01</div>
+                <div class="card-title">Tarjetas Interactivas</div>
+                <div class="card-desc">Sistema de tarjetas con efectos visuales y animaciones CSS. Hover effects, transiciones suaves y diseño atractivo.</div>
+                <div class="card-tags">
+                    <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span>
+                </div>
+                <span class="card-link">Ver proyecto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+        </a>
+
+        <a href="./TP2_Maquetado_y_Prototipado_de _Tienda_Virtual/index.html" class="project-card">
+            <div class="card-image"><img src="./img/mercadopala.png" alt="Tienda Virtual"></div>
+            <div class="card-body">
+                <div class="card-badge">TP 02</div>
+                <div class="card-title">Tienda Virtual</div>
+                <div class="card-desc">E-commerce con catálogo de productos, carrito de compras, sistema de filtros y navegación intuitiva.</div>
+                <div class="card-tags">
+                    <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">LocalStorage</span>
+                </div>
+                <span class="card-link">Ver proyecto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+        </a>
+
+        <a href="./Evaluacion_1/index.html" class="project-card">
+            <div class="card-image"><img src="./img/evaluacion1.png" alt="Evaluación 1"></div>
+            <div class="card-body">
+                <div class="card-badge">EVAL 01</div>
+                <div class="card-title">Evaluación 1</div>
+                <div class="card-desc">Interfaz de producto mobile-first con galería de imágenes, selector de variantes y diseño adaptativo.</div>
+                <div class="card-tags">
+                    <span class="tag">Mobile-First</span><span class="tag">Media Queries</span>
+                </div>
+                <span class="card-link">Ver proyecto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+        </a>
+
+        <a href="./recuperatorio/index.html" class="project-card">
+            <div class="card-image"><img src="./img/evaluacion2.png" alt="Evaluación 2"></div>
+            <div class="card-body">
+                <div class="card-badge">EVAL 02</div>
+                <div class="card-title">Evaluación 2</div>
+                <div class="card-desc">App web de restaurante con menú digital, sistema de pedidos, reseñas y navegación entre múltiples secciones.</div>
+                <div class="card-tags">
+                    <span class="tag">JavaScript</span><span class="tag">DOM</span><span class="tag">Events</span>
+                </div>
+                <span class="card-link">Ver proyecto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+        </a>
+
+        <a href="./act4-Actividades (Práctica de DOM)/index.html" class="project-card">
+            <div class="card-image"><img src="./img/Dom.png" alt="Práctica DOM"></div>
+            <div class="card-body">
+                <div class="card-badge">ACT 04</div>
+                <div class="card-title">Práctica DOM</div>
+                <div class="card-desc">Galería interactiva de Dragon Ball. Manipulación del DOM creando elementos dinámicamente desde arrays de datos.</div>
+                <div class="card-tags">
+                    <span class="tag">DOM API</span><span class="tag">createElement</span>
+                </div>
+                <span class="card-link">Ver proyecto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+        </a>
+
+        <a href="./act5/index.html" class="project-card">
+            <div class="card-image"><img src="./img/pokedex.png" alt="Pokédex"></div>
+            <div class="card-body">
+                <div class="card-badge">ACT 05</div>
+                <div class="card-title">Pokédex</div>
+                <div class="card-desc">Buscador de Pokémon con información detallada. Consume la PokéAPI para mostrar datos en tiempo real.</div>
+                <div class="card-tags">
+                    <span class="tag">Fetch API</span><span class="tag">Async/Await</span><span class="tag">PokéAPI</span>
+                </div>
+                <span class="card-link">Ver proyecto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+        </a>
+
+        <a href="./combate de pokemons/index.html" class="project-card">
+            <div class="card-image"><img src="./img/compararPokemons.png" alt="Combate de Pokémons"></div>
+            <div class="card-body">
+                <div class="card-badge">POKEMON</div>
+                <div class="card-title">Combate de Pokémons</div>
+                <div class="card-desc">Sistema de combate que compara estadísticas de dos Pokémon con animaciones de batalla y ganador automático.</div>
+                <div class="card-tags">
+                    <span class="tag">PokéAPI</span><span class="tag">Animations</span><span class="tag">Game Logic</span>
+                </div>
+                <span class="card-link">Ver proyecto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+        </a>
+
+        <a href="./lista_de_pokemons/index.html" class="project-card">
+            <div class="card-image"><img src="./img/listaDePokemons.png" alt="Lista de Pokémons"></div>
+            <div class="card-body">
+                <div class="card-badge">POKEMON</div>
+                <div class="card-title">Lista de Pokémons</div>
+                <div class="card-desc">Explorador completo con tipos, estadísticas y colores por elemento. Grid responsive y carga dinámica.</div>
+                <div class="card-tags">
+                    <span class="tag">Grid Layout</span><span class="tag">PokéAPI</span><span class="tag">Type Colors</span>
+                </div>
+                <span class="card-link">Ver proyecto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+        </a>
+
+        <a href="./guerra de pokemons/index.html" class="project-card">
+            <div class="card-image"><img src="./img/guerra-de-pokemons.png" alt="Guerra de Pokémons"></div>
+            <div class="card-body">
+                <div class="card-badge">POKEMON</div>
+                <div class="card-title">Guerra de Pokémons</div>
+                <div class="card-desc">Juego de estrategia por turnos. Seleccionás un equipo de 6 Pokémon con sistema de cartas y animaciones de victoria.</div>
+                <div class="card-tags">
+                    <span class="tag">PokéAPI</span><span class="tag">Game Logic</span><span class="tag">Card System</span>
+                </div>
+                <span class="card-link">Ver proyecto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+        </a>
+
     </div>
+
+    <footer>
+        <span class="footer-name">Lionel Clementi</span>
+        <span class="footer-note">// HTML · CSS · JavaScript</span>
+    </footer>
 
 </body>
 </html>
